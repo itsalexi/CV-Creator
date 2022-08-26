@@ -5,6 +5,9 @@ import PersonalInfo from './components/PersonalInfo/PersonalInfo';
 import ExperienceList from './components/WorkExperience/ExperienceList';
 import AddExperience from './components/WorkExperience/AddExperience';
 
+import EducationList from './components/Education/EducationList';
+import AddEducation from './components/Education/AddEducation';
+
 import { Component } from 'react';
 
 class App extends Component {
@@ -20,8 +23,6 @@ class App extends Component {
     }
 
     addExperience = (experience) => {
-        console.log('test', experience);
-        // console.log(this.state);
         this.setState(
             {
                 experiences: this.state.experiences.concat(experience),
@@ -32,12 +33,31 @@ class App extends Component {
         );
     };
 
+    addEducation = (education) => {
+        this.setState(
+            {
+                education: this.state.education.concat(education),
+            },
+            () => {
+                console.log(this.state.education);
+            }
+        );
+    };
+
     removeExp(id) {
         const experiences = this.state.experiences.filter(
             (experience) => experience.id !== id
         );
 
         this.setState({ experiences });
+    }
+
+    removeEdu(id) {
+        const education = this.state.education.filter(
+            (education) => education.id !== id
+        );
+
+        this.setState({ education });
     }
 
     render() {
@@ -57,12 +77,11 @@ class App extends Component {
                             <AddExperience addExp={this.addExperience} />
                         </div>
                         <div className="cv-education">
-                            <h1>Education</h1>
-                            <button>+ Education</button>
-                        </div>
-                        <div className="cv-skills">
-                            <h1>Skills</h1>
-                            <button>+ Skill</button>
+                            <EducationList
+                                removeEdu={this.removeEdu}
+                                educations={this.state.education}
+                            />
+                            <AddEducation addEdu={this.addEducation} />
                         </div>
                     </div>
                 </div>
