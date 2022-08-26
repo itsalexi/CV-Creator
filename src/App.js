@@ -1,9 +1,13 @@
 import './App.css';
+import TextField from './components/TextField/TextField';
 
 function App() {
     return (
         <div className="App">
-            <h1>Hello</h1>
+            <div className="name">
+                <TextField className="firstName" text="First Name" />
+                <TextField className="lastName" text="Last Name" />
+            </div>
         </div>
     );
 }
