@@ -31,22 +31,16 @@ class TextField extends Component {
     };
 
     render() {
-<<<<<<< HEAD
-=======
         const { className } = this.props;
->>>>>>> e4263f0 (git bugged)
         const { editing, text } = this.state;
 
         if (!editing) {
             return (
                 <div>
-<<<<<<< HEAD
                     <p onClick={this.switchMode}>{text}</p>
-=======
                     <p className={className} onClick={this.switchMode}>
                         {text}
                     </p>
->>>>>>> e4263f0 (git bugged)
                 </div>
             );
         } else {
