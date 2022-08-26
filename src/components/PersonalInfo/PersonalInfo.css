@@ -1,3 +1,16 @@
 .personal-info .text {
     text-align: right;
 }
+
+#address1,
+#address2 {
+    font-weight: 500;
+    font-size: 1em;
+}
+
+#phone,
+#email,
+#linkedin,
+svg {
+    font-size: 0.8em;
+}
