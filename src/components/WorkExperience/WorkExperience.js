@@ -12,26 +12,41 @@ class WorkExperience extends Component {
     }
 
     render() {
-        const { work } = this.props;
+        const { work, preview } = this.props;
         const { companyName, role, from, to, description } = work;
-        return (
-            <div className="work-experience hover">
-                <div className="work-left">
-                    <TextField text={companyName} id="companyName" />
-                    <TextField text={`${from} - ${to}`} id="fromTo" />
+        if (!preview) {
+            return (
+                <div className="work-experience hover">
+                    <div className="work-left">
+                        <TextField text={companyName} id="companyName" />
+                        <TextField text={`${from} - ${to}`} id="fromTo" />
+                    </div>
+                    <div className="work-right">
+                        <TextField id="companyRole" text={role} />
+                        <TextField id="job-description" text={description} />
+                    </div>
+                    <button
+                        className="removeExperience"
+                        onClick={this.removeExperience}
+                    >
+                        X
+                    </button>
                 </div>
-                <div className="work-right">
-                    <TextField id="companyRole" text={role} />
-                    <TextField id="job-description" text={description} />
+            );
+        } else {
+            return (
+                <div className="work-experience hover">
+                    <div className="work-left">
+                        <TextField text={companyName} id="companyName" />
+                        <TextField text={`${from} - ${to}`} id="fromTo" />
+                    </div>
+                    <div className="work-right">
+                        <TextField id="companyRole" text={role} />
+                        <TextField id="job-description" text={description} />
+                    </div>
                 </div>
-                <button
-                    className="removeExperience"
-                    onClick={this.removeExperience}
-                >
-                    X
-                </button>
-            </div>
-        );
+            );
+        }
     }
 }
 

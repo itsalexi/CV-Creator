@@ -60,62 +60,67 @@ class AddEducation extends Component {
     }
 
     render() {
-        if (!this.state.adding) {
-            return (
-                <div className="add-education">
-                    <button className="addEdu" onClick={this.toggleMode}>
-                        + Add Education
-                    </button>
-                </div>
-            );
-        } else {
-            return (
-                <div className="add-education">
-                    <form className="add-form">
-                        <input
-                            type="text"
-                            id="schoolName"
-                            placeholder="School Name"
-                            onChange={this.handleOnChange}
-                        ></input>
-                        <input
-                            type="text"
-                            id="degree"
-                            placeholder="Degree"
-                            onChange={this.handleOnChange}
-                        ></input>
-                        <div className="fromTo">
-                            <input
-                                type="text"
-                                id="from"
-                                placeholder="From (YYYY)"
-                                onChange={this.handleOnChange}
-                            ></input>
-                            <input
-                                type="text"
-                                id="to"
-                                placeholder="To (YYYY)"
-                                onChange={this.handleOnChange}
-                            ></input>
-                        </div>
-                        <textarea
-                            id="description"
-                            onChange={this.handleOnChange}
-                            rows="5"
-                            cols="50"
-                            placeholder="Descriptions or Achievements"
-                        ></textarea>
-                    </form>
-                    <div className="button-group">
-                        <button className="addEdu" onClick={this.addEducation}>
+        if (!this.props.preview) {
+            if (!this.state.adding) {
+                return (
+                    <div className="add-education">
+                        <button className="addEdu" onClick={this.toggleMode}>
                             + Add Education
                         </button>
-                        <button className="cancelBtn" onClick={this.cancel}>
-                            Cancel
-                        </button>
                     </div>
-                </div>
-            );
+                );
+            } else {
+                return (
+                    <div className="add-education">
+                        <form className="add-form">
+                            <input
+                                type="text"
+                                id="schoolName"
+                                placeholder="School Name"
+                                onChange={this.handleOnChange}
+                            ></input>
+                            <input
+                                type="text"
+                                id="degree"
+                                placeholder="Degree"
+                                onChange={this.handleOnChange}
+                            ></input>
+                            <div className="fromTo">
+                                <input
+                                    type="text"
+                                    id="from"
+                                    placeholder="From (YYYY)"
+                                    onChange={this.handleOnChange}
+                                ></input>
+                                <input
+                                    type="text"
+                                    id="to"
+                                    placeholder="To (YYYY)"
+                                    onChange={this.handleOnChange}
+                                ></input>
+                            </div>
+                            <textarea
+                                id="description"
+                                onChange={this.handleOnChange}
+                                rows="5"
+                                cols="50"
+                                placeholder="Descriptions or Achievements"
+                            ></textarea>
+                        </form>
+                        <div className="button-group">
+                            <button
+                                className="addEdu"
+                                onClick={this.addEducation}
+                            >
+                                + Add Education
+                            </button>
+                            <button className="cancelBtn" onClick={this.cancel}>
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
         }
     }
 }

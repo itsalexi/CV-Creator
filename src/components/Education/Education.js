@@ -12,26 +12,41 @@ class Education extends Component {
     }
 
     render() {
-        const { education } = this.props;
+        const { education, preview } = this.props;
         const { schoolName, degree, from, to, description } = education;
-        return (
-            <div className="work-experience hover">
-                <div className="edu-left">
-                    <TextField text={schoolName} id="schoolName" />
-                    <TextField text={`${from} - ${to}`} id="fromTo" />
+        if (!preview) {
+            return (
+                <div className="work-experience hover">
+                    <div className="edu-left">
+                        <TextField text={schoolName} id="schoolName" />
+                        <TextField text={`${from} - ${to}`} id="fromTo" />
+                    </div>
+                    <div className="edu-right">
+                        <TextField id="companyRole" text={degree} />
+                        <TextField id="edu-description" text={description} />
+                    </div>
+                    <button
+                        className="removeExperience"
+                        onClick={this.removeEducation}
+                    >
+                        X
+                    </button>
                 </div>
-                <div className="edu-right">
-                    <TextField id="companyRole" text={degree} />
-                    <TextField id="edu-description" text={description} />
+            );
+        } else {
+            return (
+                <div className="work-experience hover">
+                    <div className="edu-left">
+                        <TextField text={schoolName} id="schoolName" />
+                        <TextField text={`${from} - ${to}`} id="fromTo" />
+                    </div>
+                    <div className="edu-right">
+                        <TextField id="companyRole" text={degree} />
+                        <TextField id="edu-description" text={description} />
+                    </div>
                 </div>
-                <button
-                    className="removeExperience"
-                    onClick={this.removeEducation}
-                >
-                    X
-                </button>
-            </div>
-        );
+            );
+        }
     }
 }
 

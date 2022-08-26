@@ -1,19 +1,19 @@
-.cv-work-experience {
-    border-top: 1px solid black;
+.cv-work-experience,
+.cv-education {
     margin-top: 0.5em;
     padding-top: 1em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid black;
 }
 
 .work-experience {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 1fr 0.2fr;
-    border: 1px solid black;
+    border-left: 5px solid black;
     padding: 1em;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 1em;
 }
-
 
 .removeExperience {
     background: rgb(246, 153, 153);

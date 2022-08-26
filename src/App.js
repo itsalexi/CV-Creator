@@ -17,9 +17,12 @@ class App extends Component {
             experiences: [],
             education: [],
             skills: [],
+            preview: false,
+            buttonText: 'Edit Mode',
         };
 
         this.removeExp = this.removeExp.bind(this);
+        this.switchMode = this.switchMode.bind(this);
     }
 
     addExperience = (experience) => {
@@ -59,10 +62,25 @@ class App extends Component {
 
         this.setState({ education });
     }
-
+    switchMode() {
+        if (this.state.preview) {
+            this.setState({
+                preview: false,
+                buttonText: 'Preview Mode',
+            });
+        } else {
+            this.setState({
+                preview: true,
+                buttonText: 'Edit Mode',
+            });
+        }
+    }
     render() {
         return (
             <div className="App">
+                <button className="switchBtn" onClick={this.switchMode}>
+                    Enable {this.state.buttonText}
+                </button>
                 <div className="resume">
                     <div className="cv-header">
                         <NameInfo />
@@ -73,15 +91,23 @@ class App extends Component {
                             <ExperienceList
                                 removeExp={this.removeExp}
                                 experiences={this.state.experiences}
+                                preview={this.state.preview}
                             />
-                            <AddExperience addExp={this.addExperience} />
+                            <AddExperience
+                                addExp={this.addExperience}
+                                preview={this.state.preview}
+                            />
                         </div>
                         <div className="cv-education">
                             <EducationList
                                 removeEdu={this.removeEdu}
                                 educations={this.state.education}
+                                preview={this.state.preview}
                             />
-                            <AddEducation addEdu={this.addEducation} />
+                            <AddEducation
+                                addEdu={this.addEducation}
+                                preview={this.state.preview}
+                            />
                         </div>
                     </div>
                 </div>

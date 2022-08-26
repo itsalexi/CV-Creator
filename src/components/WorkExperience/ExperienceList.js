@@ -3,7 +3,7 @@ import WorkExperience from './WorkExperience';
 import './ExperienceList.css';
 class ExperienceList extends Component {
     render() {
-        const { experiences, removeExp } = this.props;
+        const { experiences, removeExp, preview } = this.props;
         return (
             <div className="experience-list">
                 <h2>Work Experiences</h2>
@@ -13,6 +13,7 @@ class ExperienceList extends Component {
                             <WorkExperience
                                 removeExp={removeExp}
                                 work={experience}
+                                preview={preview}
                             />
                         </div>
                     );

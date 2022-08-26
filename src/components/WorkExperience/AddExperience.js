@@ -60,65 +60,67 @@ class AddExperience extends Component {
     }
 
     render() {
-        if (!this.state.adding) {
-            return (
-                <div className="add-experience">
-                    <button className="addExpBtn" onClick={this.toggleMode}>
-                        + Add Experience
-                    </button>
-                </div>
-            );
-        } else {
-            return (
-                <div className="add-experience">
-                    <form className="add-form">
-                        <input
-                            type="text"
-                            id="companyName"
-                            placeholder="Company Name"
-                            onChange={this.handleOnChange}
-                        ></input>
-                        <input
-                            type="text"
-                            id="role"
-                            placeholder="Company Role"
-                            onChange={this.handleOnChange}
-                        ></input>
-                        <div className="fromTo">
-                            <input
-                                type="text"
-                                id="from"
-                                placeholder="From (YYYY)"
-                                onChange={this.handleOnChange}
-                            ></input>
-                            <input
-                                type="text"
-                                id="to"
-                                placeholder="To (YYYY)"
-                                onChange={this.handleOnChange}
-                            ></input>
-                        </div>
-                        <textarea
-                            id="description"
-                            onChange={this.handleOnChange}
-                            rows="5"
-                            cols="50"
-                            placeholder="Descriptions or Achievements"
-                        ></textarea>
-                    </form>
-                    <div className="button-group">
-                        <button
-                            className="addExpBtn"
-                            onClick={this.addExperience}
-                        >
+        if (!this.props.preview) {
+            if (!this.state.adding) {
+                return (
+                    <div className="add-experience">
+                        <button className="addExpBtn" onClick={this.toggleMode}>
                             + Add Experience
                         </button>
-                        <button className="cancelBtn" onClick={this.cancel}>
-                            Cancel
-                        </button>
                     </div>
-                </div>
-            );
+                );
+            } else {
+                return (
+                    <div className="add-experience">
+                        <form className="add-form">
+                            <input
+                                type="text"
+                                id="companyName"
+                                placeholder="Company Name"
+                                onChange={this.handleOnChange}
+                            ></input>
+                            <input
+                                type="text"
+                                id="role"
+                                placeholder="Company Role"
+                                onChange={this.handleOnChange}
+                            ></input>
+                            <div className="fromTo">
+                                <input
+                                    type="text"
+                                    id="from"
+                                    placeholder="From (YYYY)"
+                                    onChange={this.handleOnChange}
+                                ></input>
+                                <input
+                                    type="text"
+                                    id="to"
+                                    placeholder="To (YYYY)"
+                                    onChange={this.handleOnChange}
+                                ></input>
+                            </div>
+                            <textarea
+                                id="description"
+                                onChange={this.handleOnChange}
+                                rows="5"
+                                cols="50"
+                                placeholder="Descriptions or Achievements"
+                            ></textarea>
+                        </form>
+                        <div className="button-group">
+                            <button
+                                className="addExpBtn"
+                                onClick={this.addExperience}
+                            >
+                                + Add Experience
+                            </button>
+                            <button className="cancelBtn" onClick={this.cancel}>
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
         }
     }
 }

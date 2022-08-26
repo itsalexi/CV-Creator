@@ -2,18 +2,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    flex-direction: column;
+    margin-top: 2%;
+    gap: 1em;
 }
 
 .cv-header {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding-bottom: 1.5em;
 }
 
 .cv-content {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1em;
 }
 
 .resume {
@@ -21,4 +25,8 @@
     height: auto;
     width: 60em;
     padding: 2em;
+}
+
+.switchBtn {
+    background-color: cyan;
 }

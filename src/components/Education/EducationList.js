@@ -3,7 +3,7 @@ import Education from './Education';
 
 class EducationList extends Component {
     render() {
-        const { educations, removeEdu } = this.props;
+        const { educations, removeEdu, preview } = this.props;
         return (
             <div className="experience-list">
                 <h2>Education</h2>
@@ -13,6 +13,7 @@ class EducationList extends Component {
                             <Education
                                 removeEdu={removeEdu}
                                 education={education}
+                                preview={preview}
                             />
                         </div>
                     );
