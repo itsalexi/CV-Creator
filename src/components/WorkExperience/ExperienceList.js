@@ -1,16 +1,19 @@
 import { Component } from 'react';
 import WorkExperience from './WorkExperience';
-
+import './ExperienceList.css';
 class ExperienceList extends Component {
     render() {
-        const { experiences } = this.props;
+        const { experiences, removeExp } = this.props;
         return (
             <div className="experience-list">
                 <h2>Work Experiences</h2>
                 {experiences.map((experience) => {
                     return (
                         <div key={experience.id} className="cv-experience">
-                            <WorkExperience jobName={experience.companyName} />
+                            <WorkExperience
+                                removeExp={removeExp}
+                                work={experience}
+                            />
                         </div>
                     );
                 })}

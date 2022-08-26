@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    margin-top: 5%;
 }
 
 .cv-header {
@@ -13,6 +13,6 @@
 .resume {
     border: 1px solid black;
     height: auto;
-    width: 50em;
-    padding: 1em;
+    width: 60em;
+    padding: 2em;
 }

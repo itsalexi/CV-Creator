@@ -15,6 +15,8 @@ class App extends Component {
             education: [],
             skills: [],
         };
+
+        this.removeExp = this.removeExp.bind(this);
     }
 
     addExperience = (experience) => {
@@ -30,6 +32,14 @@ class App extends Component {
         );
     };
 
+    removeExp(id) {
+        const experiences = this.state.experiences.filter(
+            (experience) => experience.id !== id
+        );
+
+        this.setState({ experiences });
+    }
+
     render() {
         return (
             <div className="App">
@@ -41,6 +51,7 @@ class App extends Component {
                     <div className="cv-content">
                         <div className="cv-work-experience">
                             <ExperienceList
+                                removeExp={this.removeExp}
                                 experiences={this.state.experiences}
                             />
                             <AddExperience addExp={this.addExperience} />

@@ -10,3 +10,23 @@
 p {
     letter-spacing: 2px;
 }
+
+button {
+    border: 1px solid black;
+    border-radius: 1em;
+    padding: 1em 2em;
+    background: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+button,
+.hover:hover {
+    transform: scale(1.01);
+
+    transition: all 0.15s;
+}
