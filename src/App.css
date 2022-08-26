@@ -1,0 +1,18 @@
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.cv-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume {
+    border: 1px solid black;
+    height: auto;
+    width: 50em;
+    padding: 1em;
+}

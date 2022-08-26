@@ -1,15 +1,22 @@
 import './App.css';
-import TextField from './components/TextField/TextField';
+// import TextField from './components/TextField/TextField';
+import NameInfo from './components/NameInfo/NameInfo';
+import PersonalInfo from './components/PersonalInfo/PersonalInfo';
+import { Component } from 'react';
 
-function App() {
-    return (
-        <div className="App">
-            <div className="name">
-                <TextField className="firstName" text="First Name" />
-                <TextField className="lastName" text="Last Name" />
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <div className="resume">
+                    <div className="cv-header">
+                        <NameInfo />
+                        <PersonalInfo />
+                    </div>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default App;

@@ -1,0 +1,9 @@
+.text-field {
+    display: flex;
+    gap: 0.25em;
+}
+
+.text-field.right {
+    justify-content: flex-end;
+    width: 100%;
+}

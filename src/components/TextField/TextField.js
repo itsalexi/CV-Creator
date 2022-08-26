@@ -1,5 +1,6 @@
 import { Component } from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './TextField.css';
 class TextField extends Component {
     constructor(props) {
         super(props);
@@ -31,28 +32,52 @@ class TextField extends Component {
     };
 
     render() {
-        const { className } = this.props;
+        const { id, className, icon } = this.props;
         const { editing, text } = this.state;
-
         if (!editing) {
-            return (
-                <div>
-                    <p className={className} onClick={this.switchMode}>
-                        {text}
-                    </p>
-                </div>
-            );
+            if (icon) {
+                return (
+                    <div className={`text-field ${className}`}>
+                        <FontAwesomeIcon icon={icon} />
+                        <p id={id} className="text" onClick={this.switchMode}>
+                            {text}
+                        </p>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className={`text-field ${className}`}>
+                        <p id={id} className="text" onClick={this.switchMode}>
+                            {text}
+                        </p>
+                    </div>
+                );
+            }
         } else {
-            return (
-                <div>
-                    <input
-                        type="text"
-                        value={text}
-                        onKeyDown={this.handleEnter}
-                        onChange={this.handleChange}
-                    ></input>
-                </div>
-            );
+            if (icon) {
+                return (
+                    <div className={`text-field ${className}`}>
+                        <FontAwesomeIcon icon={icon} />
+                        <input
+                            type="text"
+                            value={text}
+                            onKeyDown={this.handleEnter}
+                            onChange={this.handleChange}
+                        ></input>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className={`text-field ${className}`}>
+                        <input
+                            type="text"
+                            value={text}
+                            onKeyDown={this.handleEnter}
+                            onChange={this.handleChange}
+                        ></input>
+                    </div>
+                );
+            }
         }
     }
 }
