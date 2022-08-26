@@ -71,7 +71,7 @@ class AddEducation extends Component {
         } else {
             return (
                 <div className="add-education">
-                    <form>
+                    <form className="add-form">
                         <input
                             type="text"
                             id="schoolName"
@@ -84,32 +84,36 @@ class AddEducation extends Component {
                             placeholder="Degree"
                             onChange={this.handleOnChange}
                         ></input>
-                        <input
-                            type="text"
-                            id="from"
-                            placeholder="From (YYYY)"
-                            onChange={this.handleOnChange}
-                        ></input>
-                        <input
-                            type="text"
-                            id="to"
-                            placeholder="To (YYYY)"
-                            onChange={this.handleOnChange}
-                        ></input>
+                        <div className="fromTo">
+                            <input
+                                type="text"
+                                id="from"
+                                placeholder="From (YYYY)"
+                                onChange={this.handleOnChange}
+                            ></input>
+                            <input
+                                type="text"
+                                id="to"
+                                placeholder="To (YYYY)"
+                                onChange={this.handleOnChange}
+                            ></input>
+                        </div>
                         <textarea
                             id="description"
                             onChange={this.handleOnChange}
                             rows="5"
                             cols="50"
-                            placeholder="Keep it short and simple"
+                            placeholder="Descriptions or Achievements"
                         ></textarea>
                     </form>
-                    <button className="addEdu" onClick={this.addEducation}>
-                        + Add Education
-                    </button>
-                    <button className="cancelBtn" onClick={this.cancel}>
-                        Cancel
-                    </button>
+                    <div className="button-group">
+                        <button className="addEdu" onClick={this.addEducation}>
+                            + Add Education
+                        </button>
+                        <button className="cancelBtn" onClick={this.cancel}>
+                            Cancel
+                        </button>
+                    </div>
                 </div>
             );
         }

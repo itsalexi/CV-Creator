@@ -30,3 +30,33 @@ button,
 
     transition: all 0.15s;
 }
+
+.button-group {
+    display: flex;
+    gap: 1em;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.add-form input,
+.add-form textarea {
+    padding: 1em;
+    border-radius: 0.5em;
+    resize: none;
+    border: 2px solid black;
+}
+
+.fromTo {
+    display: flex;
+    width: 100%;
+    gap: 1em;
+}
+
+.fromTo input {
+    width: 100%;
+}

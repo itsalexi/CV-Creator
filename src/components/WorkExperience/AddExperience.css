@@ -1,3 +1,7 @@
 .addExpBtn {
     background-color: lime;
 }
+
+.cancelBtn {
+    background-color: rgb(213, 170, 170);
+}

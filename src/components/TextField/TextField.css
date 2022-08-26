@@ -3,6 +3,10 @@
     gap: 0.25em;
 }
 
+.text-field input {
+    width: 90%;
+}
+
 .text-field.right {
     justify-content: flex-end;
     width: 100%;
