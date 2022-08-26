@@ -37,7 +37,6 @@ class TextField extends Component {
         if (!editing) {
             return (
                 <div>
-                    <p onClick={this.switchMode}>{text}</p>
                     <p className={className} onClick={this.switchMode}>
                         {text}
                     </p>
