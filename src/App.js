@@ -22,6 +22,8 @@ class App extends Component {
         };
 
         this.removeExp = this.removeExp.bind(this);
+        this.removeEdu = this.removeEdu.bind(this);
+
         this.switchMode = this.switchMode.bind(this);
     }
 
@@ -59,7 +61,6 @@ class App extends Component {
         const education = this.state.education.filter(
             (education) => education.id !== id
         );
-
         this.setState({ education });
     }
     switchMode() {

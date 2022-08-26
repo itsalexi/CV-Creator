@@ -8,7 +8,7 @@ class Education extends Component {
     }
 
     removeEducation() {
-        this.props.removeEdu(this.props.work.id);
+        this.props.removeEdu(this.props.education.id);
     }
 
     render() {
