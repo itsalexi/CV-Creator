@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import uniqid from 'uniqid';
-
+import './AddEducation.css';
 class AddEducation extends Component {
     constructor(props) {
         super(props);

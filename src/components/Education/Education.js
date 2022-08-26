@@ -15,17 +15,17 @@ class Education extends Component {
         const { education } = this.props;
         const { schoolName, degree, from, to, description } = education;
         return (
-            <div className="education hover">
+            <div className="work-experience hover">
                 <div className="edu-left">
                     <TextField text={schoolName} id="schoolName" />
                     <TextField text={`${from} - ${to}`} id="fromTo" />
                 </div>
                 <div className="edu-right">
-                    <TextField id="degree" text={degree} />
+                    <TextField id="companyRole" text={degree} />
                     <TextField id="edu-description" text={description} />
                 </div>
                 <button
-                    className="removeEducation"
+                    className="removeExperience"
                     onClick={this.removeEducation}
                 >
                     X
