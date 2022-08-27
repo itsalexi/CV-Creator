@@ -19,8 +19,8 @@ const App = (props) => {
         setExperiences(experiences.concat(experience));
     };
 
-    const addEducation = (education) => {
-        setEducation(education.concat(education));
+    const addEducation = (edu) => {
+        setEducation(education.concat(edu));
     };
 
     const removeExp = (id) => {
