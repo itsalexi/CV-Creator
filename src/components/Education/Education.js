@@ -1,53 +1,42 @@
-import { Component } from 'react';
 import TextField from '../TextField/TextField';
 
-class Education extends Component {
-    constructor(props) {
-        super(props);
-        this.removeEducation = this.removeEducation.bind(this);
-    }
+const Education = (props) => {
+    const { education, preview } = props;
+    const { schoolName, degree, from, to, description } = education;
 
-    removeEducation() {
-        this.props.removeEdu(this.props.education.id);
-    }
-
-    render() {
-        const { education, preview } = this.props;
-        const { schoolName, degree, from, to, description } = education;
-        if (!preview) {
-            return (
-                <div className="work-experience hover">
-                    <div className="edu-left">
-                        <TextField text={schoolName} id="schoolName" />
-                        <TextField text={`${from} - ${to}`} id="fromTo" />
-                    </div>
-                    <div className="edu-right">
-                        <TextField id="companyRole" text={degree} />
-                        <TextField id="edu-description" text={description} />
-                    </div>
-                    <button
-                        className="removeExperience"
-                        onClick={this.removeEducation}
-                    >
-                        X
-                    </button>
+    const removeEducation = () => {
+        props.removeEdu(this.props.education.id);
+    };
+    if (!preview) {
+        return (
+            <div className="work-experience hover">
+                <div className="edu-left">
+                    <TextField text={schoolName} id="schoolName" />
+                    <TextField text={`${from} - ${to}`} id="fromTo" />
                 </div>
-            );
-        } else {
-            return (
-                <div className="work-experience hover">
-                    <div className="edu-left">
-                        <TextField text={schoolName} id="schoolName" />
-                        <TextField text={`${from} - ${to}`} id="fromTo" />
-                    </div>
-                    <div className="edu-right">
-                        <TextField id="companyRole" text={degree} />
-                        <TextField id="edu-description" text={description} />
-                    </div>
+                <div className="edu-right">
+                    <TextField id="companyRole" text={degree} />
+                    <TextField id="edu-description" text={description} />
                 </div>
-            );
-        }
+                <button className="removeExperience" onClick={removeEducation}>
+                    X
+                </button>
+            </div>
+        );
+    } else {
+        return (
+            <div className="work-experience hover">
+                <div className="edu-left">
+                    <TextField text={schoolName} id="schoolName" />
+                    <TextField text={`${from} - ${to}`} id="fromTo" />
+                </div>
+                <div className="edu-right">
+                    <TextField id="companyRole" text={degree} />
+                    <TextField id="edu-description" text={description} />
+                </div>
+            </div>
+        );
     }
-}
+};
 
 export default Education;

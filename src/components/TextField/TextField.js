@@ -1,85 +1,71 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './TextField.css';
-class TextField extends Component {
-    constructor(props) {
-        super(props);
 
-        this.switchMode = this.switchMode.bind(this);
+const TextField = (props) => {
+    const [editing, setEditing] = useState(false);
+    const [text, setText] = useState(props.text);
+    const { id, className, icon } = props;
 
-        this.state = {
-            editing: false,
-            text: this.props.text,
-        };
-    }
-
-    handleEnter = (event) => {
+    const handleEnter = (event) => {
         if (event.keyCode === 13) {
-            this.setState({ editing: false });
+            setEditing(false);
         }
     };
 
-    switchMode() {
-        if (this.state.editing) {
-            this.setState({ editing: false });
-        } else {
-            this.setState({ editing: true });
-        }
-    }
-
-    handleChange = (event) => {
-        this.setState({ text: event.target.value });
+    const switchMode = () => {
+        setEditing(!editing);
     };
 
-    render() {
-        const { id, className, icon } = this.props;
-        const { editing, text } = this.state;
-        if (!editing) {
-            if (icon) {
-                return (
-                    <div className={`text-field ${className}`}>
-                        <FontAwesomeIcon icon={icon} />
-                        <p id={id} className="text" onClick={this.switchMode}>
-                            {text}
-                        </p>
-                    </div>
-                );
-            } else {
-                return (
-                    <div className={`text-field ${className}`}>
-                        <p id={id} className="text" onClick={this.switchMode}>
-                            {text}
-                        </p>
-                    </div>
-                );
-            }
+    const handleChange = (event) => {
+        setText(event.target.value);
+    };
+
+    if (!editing) {
+        if (icon) {
+            return (
+                <div className={`text-field ${className}`}>
+                    <FontAwesomeIcon icon={icon} />
+                    <p id={id} className="text" onClick={switchMode}>
+                        {text}
+                    </p>
+                </div>
+            );
         } else {
-            if (icon) {
-                return (
-                    <div className={`text-field ${className}`}>
-                        <FontAwesomeIcon icon={icon} />
-                        <input
-                            type="text"
-                            value={text}
-                            onKeyDown={this.handleEnter}
-                            onChange={this.handleChange}
-                        ></input>
-                    </div>
-                );
-            } else {
-                return (
-                    <div className={`text-field ${className}`}>
-                        <input
-                            type="text"
-                            value={text}
-                            onKeyDown={this.handleEnter}
-                            onChange={this.handleChange}
-                        ></input>
-                    </div>
-                );
-            }
+            return (
+                <div className={`text-field ${className}`}>
+                    <p id={id} className="text" onClick={switchMode}>
+                        {text}
+                    </p>
+                </div>
+            );
+        }
+    } else {
+        if (icon) {
+            return (
+                <div className={`text-field ${className}`}>
+                    <FontAwesomeIcon icon={icon} />
+                    <input
+                        type="text"
+                        value={text}
+                        onKeyDown={handleEnter}
+                        onChange={handleChange}
+                    ></input>
+                </div>
+            );
+        } else {
+            return (
+                <div className={`text-field ${className}`}>
+                    <input
+                        type="text"
+                        value={text}
+                        onKeyDown={handleEnter}
+                        onChange={handleChange}
+                    ></input>
+                </div>
+            );
         }
     }
-}
+};
 
 export default TextField;
